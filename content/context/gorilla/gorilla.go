@@ -44,7 +44,7 @@ func (ctx *wrapper) Value(key interface{}) interface{} {
 // if any.
 func HTTPRequest(ctx context.Context) (*http.Request, bool) {
 	// We cannot use ctx.(*wrapper).req to get the request because ctx may
-	// be a Context derived from a *wrapper. Instead, we use Value to
+	// not be a Context derived from a *wrapper. Instead, we use Value to
 	// access the request if it is anywhere up the Context tree.
 	req, ok := ctx.Value(reqKey).(*http.Request)
 	return req, ok
