@@ -10,7 +10,7 @@ _This_article_was_written_by_Reinaldo_Aguiar,_a_software_engineer_from_the_Searc
 
 I was recently given the opportunity to collaborate on a small but highly visible "20% project": the [[http://www.google.com/logos/2011/thanksgiving.html][Thanksgiving 2011 Google Doodle]]. The doodle features a turkey produced by randomly combining different styles of head, wings, feathers and legs. The user can customize it by clicking on the different parts of the turkey. This interactivity is implemented in the browser by a combination of JavaScript, CSS and of course HTML, creating turkeys on the fly.
 
-.image from-zero-to-go-launching-on-google_image00.png
+.image from-zero-to-go-launching-on-google/from-zero-to-go-launching-on-google_image00.png
 
 Once the user has created a personalized turkey it can be shared with friends and family by posting to Google+. Clicking a "Share" button (not pictured here) creates in the user's Google+ stream a post containing a snapshot of the turkey. The snapshot is a single image that matches the turkey the user created.
 
@@ -30,13 +30,13 @@ The approach was to encode the state of the turkey in the URL, drawing and encod
 
 The base for every doodle is the background:
 
-.image from-zero-to-go-launching-on-google_image01.jpg
+.image from-zero-to-go-launching-on-google/from-zero-to-go-launching-on-google_image01.jpg
 
 A valid request URL might look like this: `http://google-turkey.appspot.com/thumb/20332620][http://google-turkey.appspot.com/thumb/20332620`
 
 The alphanumeric string that follows "/thumb/" indicates (in hexadecimal) which choice to draw for each layout element, as illustrated by this image:
 
-.image from-zero-to-go-launching-on-google_image03.png
+.image from-zero-to-go-launching-on-google/from-zero-to-go-launching-on-google_image03.png
 
 The program's request handler parses the URL to determine which element is selected for each component, draws the appropriate images on top of the background image, and serves the result as a JPEG.
 
@@ -185,7 +185,7 @@ For brevity, I've omitted several helper functions from these code listings. See
 
 * Performance
 
-.image from-zero-to-go-launching-on-google_image02.png
+.image from-zero-to-go-launching-on-google/from-zero-to-go-launching-on-google_image02.png
 
 This chart - taken directly from the App Engine dashboard - shows average request latency during launch. As you can see, even under load it never exceeds 60 ms, with a median latency of 32 milliseconds. This is wicked fast, considering that our request handler is doing image manipulation and encoding on the fly.
 

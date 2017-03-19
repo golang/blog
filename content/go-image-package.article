@@ -56,7 +56,7 @@ A [[http://golang.org/pkg/image/#Point][`Point`]] is an (x, y) co-ordinate on th
 	    X, Y int
 	}
 
-.image go-image-package_image-package-01.png
+.image go-image-package/go-image-package_image-package-01.png
 
 	    p := image.Point{2, 1}
 
@@ -70,7 +70,7 @@ For convenience, `image.Rect(x0,`y0,`x1,`y1)` is equivalent to `image.Rectangle{
 
 A `Rectangle` is inclusive at the top-left and exclusive at the bottom-right. For a `Point`p` and a `Rectangle`r`, `p.In(r)` if and only if `r.Min.X`<=`p.X`&&`p.X`<`r.Max.X`, and similarly for `Y`. This is analogous to how a slice `s[i0:i1]` is inclusive at the low end and exclusive at the high end. (Unlike arrays and slices, a `Rectangle` often has a non-zero origin.)
 
-.image go-image-package_image-package-02.png
+.image go-image-package/go-image-package_image-package-02.png
 
 	    r := image.Rect(2, 1, 5, 5)
 	    // Dx and Dy return a rectangle's width and height.
@@ -78,14 +78,14 @@ A `Rectangle` is inclusive at the top-left and exclusive at the bottom-right. Fo
 
 Adding a `Point` to a `Rectangle` translates the `Rectangle`. Points and Rectangles are not restricted to be in the bottom-right quadrant.
 
-.image go-image-package_image-package-03.png
+.image go-image-package/go-image-package_image-package-03.png
 
 	    r := image.Rect(2, 1, 5, 5).Add(image.Pt(-4, -2))
 	    fmt.Println(r.Dx(), r.Dy(), image.Pt(0, 0).In(r)) // prints 3 4 true
 
 Intersecting two Rectangles yields another Rectangle, which may be empty.
 
-.image go-image-package_image-package-04.png
+.image go-image-package/go-image-package_image-package-04.png
 
 	    r := image.Rect(0, 0, 4, 3).Intersect(image.Rect(2, 2, 5, 5))
 	    // Size returns a rectangle's width and height, as a Point.
@@ -145,7 +145,7 @@ If you're reading or writing a lot of pixel data, it can be more efficient, but 
 
 The slice-based `Image` implementations also provide a `SubImage` method, which returns an `Image` backed by the same array. Modifying the pixels of a sub-image will affect the pixels of the original image, analogous to how modifying the contents of a sub-slice `s[i0:i1]` will affect the contents of the original slice `s`.
 
-.image go-image-package_image-package-05.png
+.image go-image-package/go-image-package_image-package-05.png
 
 	    m0 := image.NewRGBA(image.Rect(0, 0, 8, 5))
 	    m1 := m0.SubImage(image.Rect(1, 2, 5, 5)).(*image.RGBA)

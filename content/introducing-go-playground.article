@@ -8,7 +8,7 @@ Andrew Gerrand
 
 If you visit [[http://golang.org/][golang.org]] today you'll see our new look. We have given the site a new coat of paint and reorganized its content to make it easier to find. These changes are also reflected in the web interface of [[http://golang.org/cmd/godoc/][godoc]], the Go documentation tool.
 But the real news is a prominent new feature: the [[http://golang.org/][Go Playground]].
-.image introducing-go-playground_Untitled.png
+.image introducing-go-playground/introducing-go-playground_Untitled.png
 
 The Playground allows anyone with a web browser to write Go code that we immediately compile, link, and run on our servers. There are a few example programs to get you started (see the "Examples" drop-down). We hope that this will give curious programmers an opportunity to try the language before [[http://golang.org/doc/install.html][installing it]], and experienced Go users a convenient place in which to experiment. Beyond the front page, this functionality has the potential to make our reference and tutorial materials more engaging. We hope to extend its use in the near future.
 

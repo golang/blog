@@ -187,7 +187,7 @@ For either command, you need [[http://www.graphviz.org/][graphviz]] installed.)
 A small fragment of
 [[https://rawgit.com/rsc/benchgraffiti/master/havlak/havlak1.svg][the full graph]] looks like:
 
-.image profiling-go-programs_havlak1a-75.png
+.image profiling-go-programs/profiling-go-programs_havlak1a-75.png
 
 Each box in the graph corresponds to a single function, and the boxes are sized
 according to the number of samples in which the function was running.
@@ -204,7 +204,7 @@ We can tell `web` to use only samples that include a specific function, such as
 
 	(pprof) web mapaccess1
 
-.image profiling-go-programs_havlak1-hash_lookup-75.png
+.image profiling-go-programs/profiling-go-programs_havlak1-hash_lookup-75.png
 
 If we squint, we can see that the calls to `runtime.mapaccess1_fast64` are being
 made by `main.FindLoops` and `main.DFS`.
@@ -456,7 +456,7 @@ in `mallocgc`:
 
 	(pprof) web mallocgc
 
-.image profiling-go-programs_havlak4a-mallocgc.png
+.image profiling-go-programs/profiling-go-programs_havlak4a-mallocgc.png
 
 It's hard to tell what's going on in that graph, because there are many nodes with
 small sample numbers obscuring the big ones.
@@ -467,7 +467,7 @@ the samples:
 	Welcome to pprof!  For help, type 'help'.
 	(pprof) web mallocgc
 
-.image profiling-go-programs_havlak4a-mallocgc-trim.png
+.image profiling-go-programs/profiling-go-programs_havlak4a-mallocgc-trim.png
 
 We can follow the thick arrows easily now, to see that `FindLoops` is triggering
 most of the garbage collection.
