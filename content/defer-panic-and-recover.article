@@ -37,16 +37,16 @@ This works, but there is a bug. If the call to os.Create fails, the function wil
  
 	func CopyFile(dstName, srcName string) (written int64, err error) {
 	    src, err := os.Open(srcName)
+	    defer src.Close()
 	    if err != nil {
 	        return
 	    }
-	    defer src.Close()
 
 	    dst, err := os.Create(dstName)
+	    defer dst.Close()
 	    if err != nil {
 	        return
 	    }
-	    defer dst.Close()
 
 	    return io.Copy(dst, src)
 	}
