@@ -16,7 +16,7 @@ The Porter-Duff paper presented [[http://www.w3.org/TR/SVGCompositing/examples/c
 
 Composition requires associating destination pixels with source and mask pixels. Obviously, this requires destination, source and mask images, and a composition operator, but it also requires specifying what rectangle of each image to use. Not every drawing should write to the entire destination: when updating an animating image, it is more efficient to only draw the parts of the image that have changed. Not every drawing should read from the entire source: when using a sprite that combines many small images into one large one, only a part of the image is needed. Not every drawing should read from the entire mask: a mask image that collects a font's glyphs is similar to a sprite. Thus, drawing also needs to know three rectangles, one for each image. Since each rectangle has the same width and height, it suffices to pass a destination rectangle `r` and two points `sp` and `mp`: the source rectangle is equal to `r` translated so that `r.Min` in the destination image aligns with `sp` in the source image, and similarly for `mp`. The effective rectangle is also clipped to each image's bounds in their respective co-ordinate space.
 
-.image go-imagedraw-package_20.png
+.image go-imagedraw-package/go-imagedraw-package_20.png
 
 The [[http://golang.org/pkg/image/draw/#DrawMask][`DrawMask`]] function takes seven arguments, but an explicit mask and mask-point are usually unnecessary, so the [[http://golang.org/pkg/image/draw/#Draw][`Draw`]] function takes five:
 
@@ -51,7 +51,7 @@ To reset an image to transparent (or black, if the destination image's color mod
 	    draw.Draw(m, m.Bounds(), image.Transparent, image.ZP, draw.Src)
 
   
-.image go-imagedraw-package_2a.png
+.image go-imagedraw-package/go-imagedraw-package_2a.png
 
  
 * Copying an Image
@@ -71,7 +71,7 @@ Alternatively:
 To copy the entire source image, use `sr`=`src.Bounds()`.
 
   
-.image go-imagedraw-package_2b.png
+.image go-imagedraw-package/go-imagedraw-package_2b.png
 
  
 * Scrolling an Image
@@ -86,7 +86,7 @@ Scrolling an image is just copying an image to itself, with different destinatio
 	    dirtyRect := b.Intersect(image.Rect(b.Min.X, b.Max.Y-20, b.Max.X, b.Max.Y))
 
   
-.image go-imagedraw-package_2c.png
+.image go-imagedraw-package/go-imagedraw-package_2c.png
 
  
 * Converting an Image to RGBA
@@ -98,7 +98,7 @@ The result of decoding an image format might not be an `image.RGBA`: decoding a 
 	    draw.Draw(m, m.Bounds(), src, b.Min, draw.Src)
 
   
-.image go-imagedraw-package_2d.png
+.image go-imagedraw-package/go-imagedraw-package_2d.png
 
 * Drawing Through a Mask
 
@@ -128,7 +128,7 @@ To draw an image through a circular mask with center `p` and radius `r`:
 	    draw.DrawMask(dst, dst.Bounds(), src, image.ZP, &circle{p, r}, image.ZP, draw.Over)
 
   
-.image go-imagedraw-package_2e.png
+.image go-imagedraw-package/go-imagedraw-package_2e.png
 
 * Drawing Font Glyphs
 
@@ -139,7 +139,7 @@ To draw a font glyph in blue starting from a point `p`, draw with an `image.Colo
 	    mr := theBoundsFor(glyphIndex)
 	    draw.DrawMask(dst, mr.Sub(mr.Min).Add(p), src, image.ZP, mask, mr.Min, draw.Over)
 
-.image go-imagedraw-package_2f.png
+.image go-imagedraw-package/go-imagedraw-package_2f.png
 
   
 * Performance

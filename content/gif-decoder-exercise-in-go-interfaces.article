@@ -10,11 +10,11 @@ At the Google I/O conference in San Francisco on May 10, 2011, we announced that
 
 In that vein, we demonstrated a program called [[http://moustach-io.appspot.com/][Moustachio]] that makes it easy to improve a picture such as this one:
 
-.image gif-decoder-exercise-in-go-interfaces_image00.jpg
+.image gif-decoder-exercise-in-go-interfaces/gif-decoder-exercise-in-go-interfaces_image00.jpg
 
 by adding a moustache and sharing the result:
 
-.image gif-decoder-exercise-in-go-interfaces_image02.jpg
+.image gif-decoder-exercise-in-go-interfaces/gif-decoder-exercise-in-go-interfaces_image02.jpg
 
 All the graphical processing, including rendering the antialiased moustache, is done by a Go program running on App Engine. (The source is available at [[http://code.google.com/p/appengine-go/source/browse/example/moustachio/][the appengine-go project]].)
 
@@ -28,7 +28,7 @@ A GIF image can contain anywhere from 1 to 8 bits per pixel, inclusive, but 8 bi
 
 Simplifying somewhat, a GIF file contains a header defining the pixel depth and image dimensions, a color map (256 RGB triples for an 8-bit image), and then the pixel data.  The pixel data is stored as a one-dimensional bit stream, compressed using the LZW algorithm, which is quite effective for computer-generated graphics although not so good for photographic imagery. The compressed data is then broken into length-delimited blocks with a one-byte count (0-255) followed by that many bytes:
 
-.image gif-decoder-exercise-in-go-interfaces_image03.gif
+.image gif-decoder-exercise-in-go-interfaces/gif-decoder-exercise-in-go-interfaces_image03.gif
 
 * Deblocking the pixel data
 
@@ -115,6 +115,6 @@ Go's interfaces make it easy to construct software by assembling piece parts lik
 
 That deserves another picture, a GIF this time:
 
-.image gif-decoder-exercise-in-go-interfaces_image01.gif
+.image gif-decoder-exercise-in-go-interfaces/gif-decoder-exercise-in-go-interfaces_image01.gif
 
 The GIF format is defined at [[http://www.w3.org/Graphics/GIF/spec-gif89a.txt][http://www.w3.org/Graphics/GIF/spec-gif89a.txt]].

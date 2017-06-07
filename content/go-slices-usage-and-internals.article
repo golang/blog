@@ -25,7 +25,7 @@ Arrays do not need to be initialized explicitly; the zero value of an array is a
 
 The in-memory representation of `[4]int` is just four integer values laid out sequentially:
 
-.image go-slices-usage-and-internals_slice-array.png
+.image go-slices-usage-and-internals/go-slices-usage-and-internals_slice-array.png
 
 Go's arrays are values. An array variable denotes the entire array; it is not a pointer to the first array element (as would be the case in C).  This means that when you assign or pass around an array value you will make a copy of its contents. (To avoid the copy you could pass a _pointer_ to the array, but then that's a pointer to an array, not an array.) One way to think about arrays is as a sort of struct but with indexed rather than named fields: a fixed-size composite value.
 
@@ -92,11 +92,11 @@ This is also the syntax to create a slice given an array:
 
 A slice is a descriptor of an array segment. It consists of a pointer to the array, the length of the segment, and its capacity (the maximum length of the segment).
 
-.image go-slices-usage-and-internals_slice-struct.png
+.image go-slices-usage-and-internals/go-slices-usage-and-internals_slice-struct.png
 
 Our variable `s`, created earlier by `make([]byte,`5)`, is structured like this:
 
-.image go-slices-usage-and-internals_slice-1.png
+.image go-slices-usage-and-internals/go-slices-usage-and-internals_slice-1.png
 
 The length is the number of elements referred to by the slice. The capacity is the number of elements in the underlying array (beginning at the element referred to by the slice pointer). The distinction between length and capacity will be made clear as we walk through the next few examples.
 
@@ -104,7 +104,7 @@ As we slice `s`, observe the changes in the slice data structure and their relat
 
 	s = s[2:4]
 
-.image go-slices-usage-and-internals_slice-2.png
+.image go-slices-usage-and-internals/go-slices-usage-and-internals_slice-2.png
 
 Slicing does not copy the slice's data. It creates a new slice value that points to the original array. This makes slice operations as efficient as manipulating array indices. Therefore, modifying the _elements_ (not the slice itself) of a re-slice modifies the elements of the original slice:
 
@@ -119,7 +119,7 @@ Earlier we sliced `s` to a length shorter than its capacity. We can grow s to it
 
 	s = s[:cap(s)]
 
-.image go-slices-usage-and-internals_slice-3.png
+.image go-slices-usage-and-internals/go-slices-usage-and-internals_slice-3.png
 
 A slice cannot be grown beyond its capacity. Attempting to do so will cause a runtime panic, just as when indexing outside the bounds of a slice or array. Similarly, slices cannot be re-sliced below zero to access earlier elements in the array.
 

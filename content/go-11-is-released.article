@@ -8,7 +8,7 @@ Andrew Gerrand
 
 It is our great pleasure to announce the release of Go 1.1.
 
-.image go-11-is-released_gopherbiplane5.jpg
+.image go-11-is-released/go-11-is-released_gopherbiplane5.jpg
 
 In March last year we released Go 1.0, and since then we have released three minor "point releases". The point releases were made to fix only critical issues, so the Go 1.0.3 you use today is still, in essence, the Go 1.0 we released in March 2012.
 

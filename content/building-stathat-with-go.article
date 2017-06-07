@@ -14,13 +14,13 @@ You send your numbers to StatHat; it generates beautiful, fully-embeddable graph
 
 Here's an example of a StatHat graph of the temperature in NYC, Chicago, and San Francisco:
 
-.image building-stathat-with-go_weather.png
+.image building-stathat-with-go/building-stathat-with-go_weather.png
 
 * Architecture Overview
 
 StatHat consists of two main services:  incoming statistic/event API calls and the web application for viewing and analyzing stats.  We wanted to keep these as separate as possible to isolate the data collection from the data interaction.   We did this for many reasons, but one major reason is that we anticipate handling a ton of automated incoming API HTTP requests and would thus have different optimization strategies for the API service than a web application interacting with humans.
 
-.image building-stathat-with-go_stathat_architecture.png
+.image building-stathat-with-go/building-stathat-with-go_stathat_architecture.png
 
 The web application service is multi-tiered.  The web server processes all requests and sends them to an interactor layer.  For simple tasks, the interactor will handle generating any necessary data.  For complex tasks, the interactor relies on multiple application servers to handle tasks like generating graphs or analyzing data sets.  After the interactor is finished, the web server sends the result to a presenter.  The presenter responds to the HTTP request with either HTML or JSON.  We can horizontally scale the web, API, application servers, and databases as the demand for services grows and changes over time.  There is no single point of failure as each application server has multiple copies running.  The interactor layer allows us to have different interfaces to the system:  http, command line, automated tests, mobile API.  StatHat uses MySQL for data storage.
 

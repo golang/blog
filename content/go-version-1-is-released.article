@@ -6,7 +6,7 @@ Andrew Gerrand
 
 * Introduction
 
-.image go-version-1-is-released_gophermega.jpg
+.image go-version-1-is-released/go-version-1-is-released_gophermega.jpg
 Today marks a major milestone in the development of the Go programming language. We're announcing Go version 1, or Go 1 for short, which defines a language and a set of core libraries to provide a stable foundation for creating reliable products, projects, and publications.
 
 Go 1 is the first release of Go that is available in supported binary distributions. They are available for Linux, FreeBSD, Mac OS X and, we are thrilled to announce, Windows.
