@@ -348,7 +348,7 @@ Here is an informative little exercise.
 How do we express a constant representing the largest value that fits in a `uint`?
 If we were talking about `uint32` rather than `uint`, we could write
 
-	const MaxUint32 = 1<<32 - 1
+	const MaxUint32 = 1<<31 - 1
 
 but we want `uint`, not `uint32`.
 The `int` and `uint` types have equal unspecified numbers of bits, either 32 or 64.
