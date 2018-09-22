@@ -84,7 +84,7 @@ In this example, a deferred function increments the return value i _after_ the s
 
 	func c() (i int) {
 	    defer func() { i++ }()
-	    return 1
+	    return i
 	}
 
  
