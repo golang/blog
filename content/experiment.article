@@ -86,7 +86,7 @@ in the Go distribution, and we reshaped them into one new command.
 	8a      govet
 
 The `go` command is so central now that
-it is easy to forget that we went so long without it and how much extra work that involved.
+it is easy to forget that we went so long without it and how much extra work was involved.
 
 We added code and complexity to the Go distribution,
 but on balance we simplified the experience of writing Go programs.
