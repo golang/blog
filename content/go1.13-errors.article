@@ -65,7 +65,7 @@ value as a more specific type.
 	func (e *NotFoundError) Error() string { return e.Name + ": not found" }
 
 	if e, ok := err.(*NotFoundError); ok {
-		// e.Name wasn't found
+		// e.Name was found
 	}
 
 ### Adding information
