@@ -432,10 +432,6 @@ Reading the docs, we can see that `Hello` has become `HelloV3`:
 	func OptV3() string
 	$
 
-(There is also a
-[known bug](https://golang.org/issue/30778) in the output;
-the displayed import path has incorrectly dropped the `/v3`.)
-
 We can update our use of `quote.Hello()` in `hello.go` to use `quoteV3.HelloV3()`:
 
 	package hello
