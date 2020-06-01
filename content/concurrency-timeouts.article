@@ -41,7 +41,7 @@ before the timeout is reached.
 The `timeout` channel will eventually be deallocated by the garbage collector.
 
 (In this example we used `time.Sleep` to demonstrate the mechanics of goroutines and channels.
-In real programs you should use ` [time.After](https://golang.org/pkg/time/#After)`,
+In real programs you should use [`time.After`](https://golang.org/pkg/time/#After),
 a function that returns a channel and sends on that channel after the specified duration.)
 
 Let's look at another variation of this pattern.
@@ -65,9 +65,8 @@ It queries each of the databases in parallel and returns the first response it r
 	    return <-ch
 	}
 
-In this example, the closure does a non-blocking send,
-which it achieves by using the send operation in `select` statement with a `default` case.
-If the send cannot go through immediately the default case will be selected.
+In this example, a select statement is used within a closure to prevent the channel from blocking. If the result from
+`DoQuery` isn't immediately available, the `default` case is selected making the send non-blocking. 
 Making the send non-blocking guarantees that none of the goroutines launched
 in the loop will hang around.
 However, if the result arrives before the main function has made it to the receive,
