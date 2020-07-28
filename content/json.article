@@ -61,6 +61,19 @@ The json package only accesses the exported fields of struct types (those
 that begin with an uppercase letter).
 Therefore only the the exported fields of a struct will be present in the JSON output.
 
+
+In cases where you need to access the lowercase fields i.e e.g: Response json of Public APIs, you can follow the below pattern.
+
+Given the Go data structure, `Message`,
+
+	type Message struct {
+	    Name string   `json:”name”`
+	    Body string   `json:"body”`
+	    Time int64    `json:”_time”
+	}
+
+For further information checkout the [`Marshal`](https://golang.org/pkg/encoding/json/#Marshal) function.
+
 ## Decoding
 
 To decode JSON data we use the [`Unmarshal`](https://golang.org/pkg/encoding/json/#Unmarshal) function.
