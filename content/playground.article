@@ -208,17 +208,17 @@ with a set of files that can be used in documentation examples, blog posts, and
 the Go Tour.
 
 The implementation can be found in the
-[`fs_nacl.go`](https://github.com/golang/go/blob/master/src/syscall/fs_nacl.go) and
-[`fd_nacl.go`](https://github.com/golang/go/blob/master/src/syscall/fd_nacl.go) files
+[`fs_nacl.go`](https://github.com/golang/go/blob/2197321db1dd997165c0091ba2bcb3b6be7633d0/src/syscall/fs_nacl.go) and
+[`fd_nacl.go`](https://github.com/golang/go/blob/2197321db1dd997165c0091ba2bcb3b6be7633d0/src/syscall/fd_nacl.go) files
 (which, by virtue of their `_nacl` suffix, are built into package `syscall` only
 when `GOOS` is set to `nacl`).
 
 The file system itself is represented by the
-[`fsys` struct](https://github.com/golang/go/blob/master/src/syscall/fs_nacl.go#L26),
+[`fsys` struct](https://github.com/golang/go/blob/2197321db1dd997165c0091ba2bcb3b6be7633d0/src/syscall/fs_nacl.go#L26),
 of which a global instance (named `fs`) is created during init time.
 The various file-related functions then operate on `fs` instead of making the
 actual system call.
-For instance, here is the [`syscall.Open`](https://github.com/golang/go/blob/master/src/syscall/fs_nacl.go#L473) function:
+For instance, here is the [`syscall.Open`](https://github.com/golang/go/blob/2197321db1dd997165c0091ba2bcb3b6be7633d0/src/syscall/fs_nacl.go#L473) function:
 
 	func Open(path string, openmode int, perm uint32) (fd int, err error) {
 		fs.mu.Lock()
@@ -231,13 +231,13 @@ For instance, here is the [`syscall.Open`](https://github.com/golang/go/blob/mas
 	}
 
 File descriptors are tracked by a global slice named
-[`files`](https://github.com/golang/go/blob/master/src/syscall/fd_nacl.go#L17).
-Each file descriptor corresponds to a [`file`](https://github.com/golang/go/blob/master/src/syscall/fd_nacl.go#L23)
-and each `file` provides a value that implements the [`fileImpl`](https://github.com/golang/go/blob/master/src/syscall/fd_nacl.go#L30) interface.
+[`files`](https://github.com/golang/go/blob/2197321db1dd997165c0091ba2bcb3b6be7633d0/src/syscall/fd_nacl.go#L17).
+Each file descriptor corresponds to a [`file`](https://github.com/golang/go/blob/2197321db1dd997165c0091ba2bcb3b6be7633d0/src/syscall/fd_nacl.go#L23)
+and each `file` provides a value that implements the [`fileImpl`](https://github.com/golang/go/blob/2197321db1dd997165c0091ba2bcb3b6be7633d0/src/syscall/fd_nacl.go#L30) interface.
 There are several implementations of the interface:
 
-  - regular files and devices (such as `/dev/random`) are represented by [`fsysFile`](https://github.com/golang/go/blob/master/src/syscall/fs_nacl.go#L58),
-  - standard input, output, and error are instances of [`naclFile`](https://github.com/golang/go/blob/master/src/syscall/fd_nacl.go#L216),
+  - regular files and devices (such as `/dev/random`) are represented by [`fsysFile`](https://github.com/golang/go/blob/2197321db1dd997165c0091ba2bcb3b6be7633d0/src/syscall/fs_nacl.go#L58),
+  - standard input, output, and error are instances of [`naclFile`](https://github.com/golang/go/blob/2197321db1dd997165c0091ba2bcb3b6be7633d0/src/syscall/fd_nacl.go#L216),
     which uses system calls to interact with the actual files (these are a playground
     program's only way to interact with the outside world),
   - network sockets have their own implementation, discussed in the next section.
@@ -260,8 +260,8 @@ implementation of the fake network is larger and more complex than the fake
 file system. It must simulate read and write timeouts, different address types
 and protocols, and so on.
 
-The implementation can be found in [`net_nacl.go`](https://github.com/golang/go/blob/master/src/syscall/net_nacl.go).
-A good place to start reading is [`netFile`](https://github.com/golang/go/blob/master/src/syscall/net_nacl.go#L461),
+The implementation can be found in [`net_nacl.go`](https://github.com/golang/go/blob/2197321db1dd997165c0091ba2bcb3b6be7633d0/src/syscall/net_nacl.go).
+A good place to start reading is [`netFile`](https://github.com/golang/go/blob/2197321db1dd997165c0091ba2bcb3b6be7633d0/src/syscall/net_nacl.go#L461),
 the network socket implementation of the `fileImpl` interface.
 
 ## The front end
@@ -309,7 +309,7 @@ abstracts the user interface from the means of talking to the web front end.
 [`HTTPTransport`](https://github.com/golang/tools/blob/master/godoc/static/playground.js#L43)
 is an implementation of `Transport` that speaks the HTTP-based protocol
 described earlier.
-[`SocketTransport`](https://github.com/golang/tools/blob/master/godoc/static/playground.js#L115)
+[`SocketTransport`](https://github.com/golang/tools/blob/master/godoc/static/playground.js#L209)
 is another implementation that speaks WebSocket (see 'Playing offline' below).
 
 To comply with the [same-origin policy](https://en.wikipedia.org/wiki/Same-origin_policy),
