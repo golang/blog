@@ -67,7 +67,7 @@ Create a new, empty directory somewhere outside `$GOPATH/src`,
 	package hello
 
 	func Hello() string {
-		return "Hello, world."
+		return "Ahoy, world!"
 	}
 
 Let's write a test, too, in `hello_test.go`:
@@ -77,7 +77,7 @@ Let's write a test, too, in `hello_test.go`:
 	import "testing"
 
 	func TestHello(t *testing.T) {
-		want := "Hello, world."
+		want := "Ahoy, world!"
 		if got := Hello(); got != want {
 			t.Errorf("Hello() = %q, want %q", got, want)
 		}
