@@ -193,7 +193,7 @@ For instance, although one can write
 
 	[]int("hi")
 
-as a conversion, one must parenthesize the type if it starts with a \*:
+as a convention, one must parenthesize the type if it starts with a \*:
 
 	(*int)(nil)
 
