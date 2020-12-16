@@ -294,24 +294,24 @@ code for setting up the user interface (the code and output boxes, the run
 button, and so on) and communicating with the playground front end.
 
 This implementation is in the file
-[`playground.js`](https://github.com/golang/tools/blob/master/godoc/static/playground.js)
+[`playground.js`](https://github.com/golang/tools/blob/f8e922be8efeabd06a510065ca5836b62fa10b9a/godoc/static/playground.js)
 in the `go.tools` repository, which can be imported from the
 [`golang.org/x/tools/godoc/static`](https://godoc.org/golang.org/x/tools/godoc/static) package.
 Some of it is clean and some is a bit crufty, as it is the result of
 consolidating several divergent implementations of the client code.
 
-The [`playground`](https://github.com/golang/tools/blob/master/godoc/static/playground.js#L227)
+The [`playground`](https://github.com/golang/tools/blob/f8e922be8efeabd06a510065ca5836b62fa10b9a/godoc/static/playground.js#L227)
 function takes some HTML elements and turns them into an interactive
 playground widget. You should use this function if you want to put the
 playground on your own site (see 'Other clients' below).
 
-The [`Transport`](https://github.com/golang/tools/blob/master/godoc/static/playground.js#L6)
+The [`Transport`](https://github.com/golang/tools/blob/f8e922be8efeabd06a510065ca5836b62fa10b9a/godoc/static/playground.js#L6)
 interface (not formally defined, this being JavaScript)
 abstracts the user interface from the means of talking to the web front end.
-[`HTTPTransport`](https://github.com/golang/tools/blob/master/godoc/static/playground.js#L43)
+[`HTTPTransport`](https://github.com/golang/tools/blob/f8e922be8efeabd06a510065ca5836b62fa10b9a/godoc/static/playground.js#L43)
 is an implementation of `Transport` that speaks the HTTP-based protocol
 described earlier.
-[`SocketTransport`](https://github.com/golang/tools/blob/master/godoc/static/playground.js#L209)
+[`SocketTransport`](https://github.com/golang/tools/blob/f8e922be8efeabd06a510065ca5836b62fa10b9a/godoc/static/playground.js#L115)
 is another implementation that speaks WebSocket (see 'Playing offline' below).
 
 To comply with the [same-origin policy](https://en.wikipedia.org/wiki/Same-origin_policy),
