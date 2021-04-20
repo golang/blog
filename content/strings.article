@@ -220,7 +220,7 @@ The Unicode standard uses the term "code point" to refer to the item represented
 by a single value.
 The code point U+2318, with hexadecimal value 2318, represents the symbol ⌘.
 (For lots more information about that code point, see
-[its Unicode page](http://unicode.org/cldr/utility/character.jsp?a=2318).)
+[its Unicode page](https://decodeunicode.org/u+2318).)
 
 To pick a more prosaic example, the Unicode code point U+0061 is the lower
 case Latin letter 'A': a.
