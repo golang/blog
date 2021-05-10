@@ -2,6 +2,7 @@
 
 {{define "title"}}{{.Doc.Title}} - The Go Blog{{end}}
 {{define "content"}}
+	<i class="IsArticle"></i>
 	{{template "doc" .Doc}}
 	{{with .Doc.Related}}
 		<h2>Related articles</h2>
